@@ -1,5 +1,7 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
+import './Navbar.css';
+import { Button } from './Button';
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -9,14 +11,21 @@ function Navbar() {
   const closeMobileMenu = () => setClick(false);
 
   const showButton = ()  => {
-    if(window.innerWidth <= 960) {
+    if(window.innerWidth <= 600) {
       setButton(false);
     }else {
         setButton(true);
       }
   };
 
-  window.addEventListener('resize', showButton);
+  useEffect(() => {
+    showButton();
+    window.addEventListener('resize', showButton);
+
+    return () => {
+      window.removeEventListener('resize', showButton);
+    };
+  }, []);
 
   return (
     <>
@@ -38,18 +47,22 @@ function Navbar() {
             <Link to='/catalog' className='nav-links' onClick={closeMobileMenu}>
               Catalog
               </Link>
-              <li className='nav-item'>
+          <li className='nav-item'>
             <Link to='/sign-up' className='-nav-links-mobile' onClick={closeMobileMenu}>
               Sign Up
               </Link>
-          </li>
+  </li> 
           </li>
         </ul>
-        {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>}
+        {button && (
+        <li className='nav-item'>
+          <Button buttonStyle='btn--outline'>SIGN UP</Button>
+          </li>
+          )}
         </div>
     </nav>  
     </>
   )
 }
 
-export default Navbar
+export default Navbar;
