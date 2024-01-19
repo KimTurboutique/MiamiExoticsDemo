@@ -26,9 +26,9 @@ function Navbar() {
 
   return (
     <>
-    <nav className="navbar">
-        <div className="navbar-container">
-        <Link to="/" className="navbar-logo">
+    <nav className='navbar'>
+        <div className='navbar-container'>
+        <Link to="/" className='navbar-logo' onClick={closeMobileMenu}>
             MIAMI EXOTIC RENTALS LOGO HERE <i className='fa-solid fa-car'></i>
         </Link>
         <div className='menu-icon' onClick={handleClick}>
