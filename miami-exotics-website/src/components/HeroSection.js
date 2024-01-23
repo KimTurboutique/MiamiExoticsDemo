@@ -7,7 +7,7 @@ import './HeroSection.css';
 function HeroSection() {
   return (
     <div className='hero-container'>
-     <video src="/videos/video-2.mp4" autoPlay loop muted/>
+     <video src="/videos/IMG_2500.mov" autoPlay loop muted/>
      <h1>LUXURY REDEFINED</h1>
      <p>Step into the driver's seat of our top-notch exotic cars and indulge in a redefined luxury experience. Elevate your Miami getaway with the ultimate exotic car rental service in the city.</p>
      <Button
